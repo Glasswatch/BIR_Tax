@@ -189,20 +189,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['description'])) {
     <!-- Top Navigation -->
     <div class="top-nav">
         <div class="logo-container">
-            <img src="picture.png" alt="BIR Logo" class="bir-logo">
+            <img src="../TaskB/picture.png" alt="BIR Logo" class="bir-logo">
             <h1>Bureau of Internal</h1>
             
         </div>
-        <a href="logout.php" class="logout-btn">Logout</a>
+        <a href="../TaskA/login.php" class="logout-btn">Logout</a>
     </div>
 
     <!-- Main Navigation -->
     <nav class="main-nav">
         <ul>
-            <li><a href="dashboard.php">Dashboard</a></li>
-            <li><a href="reports.php">Reports</a></li>
-            <li><a href="tax-calculator.php">Tax Calculator</a></li>
-            <li><a href="profile.php">Profile</a></li>
+            <li><a href="submit.php">📝Create Reports</a></li>
+            <li><a href="payment_approval.php">💵💰💳Payment Verification</a></li>
         </ul>
     </nav>
 

@@ -89,11 +89,25 @@ if (!$calculation) {
             text-decoration: none;
             display: inline-block;
         }
+        .bir-logo {
+            height: 50px;
+            width: auto;
+            margin-right: 1rem;
+        }
+         .bir-header{
+            display:flex;
+            align-items:center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
     <div class="payment-container">
-        <h1>Complete Your Payment</h1>
+        <div class="bir-header">
+            <img src="../taskb/picture.png" alt="BIR Logo" class="bir-logo">
+           <h1>Complete Your Payment</h1>
+        </div> 
+        
         
         <div class="calculation-summary">
             <h3>Your Tax Calculation Summary</h3>

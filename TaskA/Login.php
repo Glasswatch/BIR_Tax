@@ -32,7 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("Location: ../TaskD/admin_users.php");
             } else if ($access_level === 'Employee') {
                 header("Location: ../taskB/official_dashboard.php");
-            } else {
+            } else if ($access_level === 'Bank') {
+                header("Location: ../taskC/payment_approval.php");
+            }else {
                 header("Location: calc.php");
             }
             exit();
@@ -62,7 +64,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <div class="container">
-        <h2>Login</h2>
+        
+        <div class="bir-header">
+           <img src="../taskb/picture.png" alt="BIR Logo" class="bir-img">
+           <h2>Login</h2>
+        </div> 
+
+        
         <form method="POST" action="login.php">
             <input type="email" name="email" placeholder="Email" required /><br />
             <input type="password" name="password" placeholder="Password" required /><br />

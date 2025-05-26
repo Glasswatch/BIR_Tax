@@ -59,9 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+        
         h1 {
             text-align: center;
             color: #2c3e50;
+            
         }
         fieldset {
             border: 1px solid #ddd;
@@ -146,11 +148,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
             background-color: #f2dede;
             border-color: #ebccd1;
         }
+         .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .bir-logo {
+            height: 50px;
+            width: auto;
+            margin-right: 1rem;
+        }
+        
+        .bir-header{
+            display:flex;
+            align-items:center;
+            justify-content: center;
+        }
+        
     </style>
 </head>
 <body>
     <div class="calculator-container">
-        <h1>Withholding Tax Calculator</h1>
+        <div class="bir-header">
+            <img src="../taskb/picture.png" alt="BIR Logo" class="bir-logo">
+           <h1>Withholding Tax Calculator</h1>
+        </div>  
         
         <form name="withholding_tax_calculator" id="taxForm" method="post"  onsubmit="return validateForm()">
             <fieldset>

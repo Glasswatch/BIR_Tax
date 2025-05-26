@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $first_name = trim($_POST['first_name'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
+    $phone_number = trim($_POST['phone_number'] ?? '');
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die("Invalid email.");
@@ -29,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    $stmt = $conn->prepare("INSERT INTO users (last_name, first_name, email, password) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (last_name, first_name, email ,password,phone_number) VALUES (?, ?, ?, ?,?)");
     if (!$stmt) {
         die("Database error: " . $conn->error);
         exit();
     }
 
-    $stmt->bind_param("ssss", $last_name, $first_name, $email, $hashedPassword);
+    $stmt->bind_param("sssss", $last_name, $first_name, $email, $hashedPassword, $phone_number);
 
     if ($stmt->execute()) {
        header("Location: login.php?error=Your+account+is+pending+approval");
@@ -62,14 +63,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+    
     <div class="container">
+        <div class="bir-header">
+           <img src="../taskb/picture.png" alt="BIR Logo" class="bir-img">
+            <h2>Register</h2>
+        </div> 
 
-    <h2>Register</h2>
+   
 
     <form method="POST" action="register.php" onsubmit="return validatePasswords();">
         <input type="text" name="first_name" placeholder="First Name" required><br><br>
         <input type="text" name="last_name" placeholder="Last Name" required><br><br>
         <input type="email" name="email" placeholder="Email" required><br><br>
+        <input type="text" name="phone_number" placeholder="Phone Number" required><br><br>
         <input type="password" id="password" name="password" placeholder="Password" required minlength="8"
             autocomplete="new-password" oninput="updatePasswordFeedback();"><br>
 

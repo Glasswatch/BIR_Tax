@@ -90,6 +90,7 @@ select {
     padding: 5px;
 }
 
+
 form {
     display: inline-block;
 }
@@ -124,3 +125,16 @@ form {
              background-color: #0d6ac8c4; 
       
         }
+
+         
+ .bir-logo {
+            height: 50px;
+            margin-right: 1rem;
+        }
+        
+.bir-header{
+            display:flex;
+            align-items:center;
+            justify-content: center;
+        }
+        

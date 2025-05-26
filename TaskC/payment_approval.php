@@ -3,8 +3,8 @@
     require_once '../db.php';
 
     // Check if logged in and is an employee (official)
-    if (!isset($_SESSION['user_id']) || $_SESSION['access_level'] !== 'Employee') {
-        die("Access denied. Please log in as an Employee/Official.");
+    if (!isset($_SESSION['user_id']) || $_SESSION['access_level'] !== 'Bank') {
+        die("Access denied. Please log in as a Bank Official.");
     }
 
     // Handle payment verification
@@ -166,7 +166,7 @@
     <body>
         <div class="top-nav">
             <div class="logo-container">
-                <img src="picture.png" alt="BIR Logo" class="bir-logo">
+                <img src="../TaskB/picture.png" alt="BIR Logo" class="bir-logo">
                 <h2>BIR Employee Dashboard</h2>
             </div>
             <nav>
@@ -176,10 +176,8 @@
 
         <div class="main-nav">
             <ul>
-                <li><a href="dashboard.php">Dashboard</a></li>
-                <li><a href="payment_verification.php">Payment Verification</a></li>
-                <li><a href="taxpayers.php">Taxpayers</a></li>
-                <li><a href="settings.php">Account Settings</a></li>
+                <li><a href="submit.php">📝Create Reports</a></li>
+                <li><a href="payment_approval.php">💵💰💳Payment Verification</a></li>
             </ul>
         </div>
 

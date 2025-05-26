@@ -44,10 +44,16 @@ $result = $conn->query("SELECT id, first_name, last_name, email, is_approved, ac
 </head>
 <body>
     <div class="top-nav">
-        <h2>Admin Panel</h2>
+        <div class="bir-header">
+            <img src="../taskb/picture.png" alt="BIR Logo" class="bir-logo">
+           <h1>Admin Panel</h1>
+        </div>  
+
+        
         <nav>
             <a href="admin_users.php">👥 Manage Users</a>
             <a href="generate_report.php">📄 Generate Report</a>
+            <a href="../taska/Login.php">❌     Log out</a>
         </nav>
     </div>
 

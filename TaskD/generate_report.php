@@ -27,14 +27,14 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <title>Generate Report</title>
-    <link rel="stylesheet" href="admin_style.css">
+    <link rel="stylesheet" href="adminDesign.css">
 </head>
 <body>
     <!-- Navigation -->
     <div class="top-nav">
         <h2>Admin Panel</h2>
         <nav>
-            <a href="manage_users.php">👥 Manage Users</a>
+            <a href="admin_users.php">👥 Manage Users</a>
             <a href="generate_report.php">📄 Generate Report</a>
         </nav>
     </div>

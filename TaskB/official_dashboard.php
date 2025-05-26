@@ -150,7 +150,7 @@ $result = $conn->query($sql);
             padding: 5px 15px;
             border-radius: 3px;
             text-decoration: none;
-        }
+        }   
         
         .logout-btn:hover {
             background-color: #990000;
@@ -165,16 +165,13 @@ $result = $conn->query($sql);
            
         </div>
         <nav>
-            <a href="../logout.php" class="logout-btn">Logout</a>
+            <a href="../TaskA/login.php" class="logout-btn">Logout</a>
         </nav>
     </div>
     
     <div class="main-nav">
         <ul>
-            <li><a href="dashboard.php">Dashboard</a></li>
-            <li><a href="reports.php">Reports</a></li>
-            <li><a href="payment_approval.php">Payments</a></li>
-            <li><a href="settings.php">Account Settings</a></li>
+            <li><a href="official_dashboard.php">Dashboard</a></li>
         </ul>
     </div>
 
