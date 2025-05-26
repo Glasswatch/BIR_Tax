@@ -1,0 +1,126 @@
+/* Reset default spacing and set box-sizing globally */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    background-color: #004080;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.top-nav h2 {
+    color: white;
+}
+
+.top-nav a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.top-nav a:last-child {
+    margin-right: 0;
+}
+
+/* Content Styling */
+body > .content {
+    padding: 2rem;
+}
+
+h3 {
+    color: #333;
+}
+
+/* Table Styling */
+table {
+    
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #003366;
+    color: white;
+}
+
+tr {
+    background-color: rgba(61, 107, 153, 0.43);
+}
+
+/* Button Styling */
+button {
+    padding: 6px 10px;
+    margin: 2px;
+    background-color: rgb(44, 100, 156);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: rgb(42, 61, 157);
+    transform: scale(1.1);
+}
+
+/* Form and Select Styling */
+select {
+    padding: 5px;
+}
+
+form {
+    display: inline-block;
+}
+
+     .search-form {
+            margin-bottom: 1rem;
+            display: flex;
+           justify-content: flex-end;
+            
+        }
+        .search-form input[type="text"] {
+            padding: 0.5rem;
+            width: 250px;
+        }
+        .search-form button {
+            padding: 0.5rem;
+        }
+        .search-form a{
+            margin-top: 1vw; 
+            text-decoration: none;
+            border:solid; 
+            border-radius: 3vw; 
+            width: 5vw; 
+            display: flex;
+            justify-content: center; 
+            transform: all 0.3s ease-in-out;
+            background-color: #003366;   
+            color: #ddd;
+        }
+        .search-form a:hover{
+            transform: scaleY(1.1);
+             background-color: #0d6ac8c4; 
+      
+        }

@@ -1,0 +1,417 @@
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+   :root {
+       --primary-color: #003366;
+       --primary-light: #3d6b99;
+       --secondary-color: #005a8c;
+       --accent-color: #cc0000;
+       --success-color: #2e8540;
+       --light-gray: #f8f9fa;
+       --medium-gray: #e9ecef;
+       --dark-gray: #495057;
+       --border-radius: 6px;
+       --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+       --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+   }
+
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+   }
+
+   body {
+       font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+       background-color: #f5f7fa;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       min-height: 100vh;
+       margin: 0;
+       padding: 20px;
+       color: #212529;
+       line-height: 1.6;
+       background-image: radial-gradient(circle at 10% 20%, rgba(0, 51, 102, 0.03) 0%, rgba(0, 51, 102, 0.03) 90%);
+   }
+
+   .container {
+       background-color: white;
+       padding: 2.5rem;
+       border-radius: var(--border-radius);
+       box-shadow: var(--box-shadow);
+       width: 100%;
+       max-width: 480px;
+       margin: 0 auto;
+       border-top: 4px solid var(--primary-color);
+       position: relative;
+       overflow: hidden;
+   }
+
+   .container::before {
+       content: "";
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       height: 4px;
+       background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+   }
+
+   .govt-header {
+       display: flex;
+       align-items: center;
+       margin-bottom: 1.75rem;
+       position: relative;
+   }
+
+   .govt-logo {
+       height: 48px;
+       width: 48px;
+       margin-right: 16px;
+       background-color: var(--primary-color);
+       border-radius: 4px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       color: white;
+       font-weight: bold;
+       font-size: 20px;
+   }
+
+   .govt-title {
+       font-size: 1.1rem;
+       color: var(--primary-color);
+       font-weight: 700;
+       letter-spacing: 0.5px;
+   }
+
+   h2 {
+       color: var(--primary-color);
+       margin-bottom: 1.75rem;
+       font-size: 1.625rem;
+       font-weight: 700;
+       position: relative;
+       padding-bottom: 0.75rem;
+   }
+
+   h2::after {
+       content: "";
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       width: 48px;
+       height: 3px;
+       background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+       border-radius: 3px;
+   }
+
+   .form-group {
+       margin-bottom: 1.5rem;
+       position: relative;
+   }
+
+   label {
+       display: block;
+       margin-bottom: 0.75rem;
+       color: var(--dark-gray);
+       font-weight: 600;
+       font-size: 0.95rem;
+   }
+
+   input,
+   select {
+       width: 100%;
+       padding: 0.875rem 1rem;
+       border: 1px solid var(--medium-gray);
+       border-radius: var(--border-radius);
+       font-size: 1rem;
+       transition: var(--transition);
+       background-color: white;
+       box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+       margin-bottom: 0.5rem;
+   }
+
+   input:focus,
+   select:focus {
+       outline: none;
+       border-color: var(--primary-light);
+       box-shadow: 0 0 0 3px rgba(0, 90, 140, 0.15);
+   }
+
+   button {
+       width: 100%;
+       padding: 1rem;
+       background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+       color: white;
+       border: none;
+       border-radius: var(--border-radius);
+       font-size: 1rem;
+       font-weight: 600;
+       cursor: pointer;
+       transition: var(--transition);
+       margin-top: 1.5rem;
+       letter-spacing: 0.5px;
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   }
+
+   button:hover {
+       transform: translateY(-1px);
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+   }
+
+   .footer-text {
+       text-align: center;
+       margin-top: 2rem;
+       color: var(--dark-gray);
+       font-size: 0.875rem;
+       padding-top: 1.25rem;
+       border-top: 1px solid var(--medium-gray);
+   }
+
+   .footer-text a {
+       color: var(--primary-color);
+       text-decoration: none;
+       font-weight: 600;
+       transition: color 0.2s;
+   }
+
+   .footer-text a:hover {
+       color: var(--secondary-color);
+       text-decoration: underline;
+   }
+
+   .modal {
+       display: none;
+       position: fixed;
+       z-index: 999;
+       left: 0;
+       top: 0;
+       width: 100%;
+       height: 100%;
+       backdrop-filter: blur(3px);
+       background-color: rgba(0, 0, 0, 0.35);
+       transition: opacity 0.3s ease-in-out;
+   }
+
+   .modal-content {
+       background: #ffffff;
+       margin: 15% auto;
+       padding: 30px 25px;
+       border-radius: 16px;
+       width: 90%;
+       max-width: 360px;
+       text-align: center;
+       position: relative;
+       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+       animation: fadeIn 0.4s ease-out;
+   }
+
+   .modal-content p {
+       color: #333;
+       font-size: 16px;
+       font-weight: 500;
+       margin-top: 10px;
+   }
+
+   .close {
+       position: absolute;
+       top: 12px;
+       right: 14px;
+       font-size: 22px;
+       font-weight: 600;
+       color: #999;
+       cursor: pointer;
+       transition: color 0.2s ease;
+   }
+
+   .close:hover {
+       color: #e74c3c;
+   }
+
+   @keyframes fadeIn {
+       from {
+           opacity: 0;
+           transform: translateY(-10px);
+       }
+
+       to {
+           opacity: 1;
+           transform: translateY(0);
+       }
+   }
+
+   .progress-steps {
+       display: flex;
+       justify-content: space-between;
+       margin-bottom: 2rem;
+       position: relative;
+   }
+
+   .progress-steps::before {
+       content: "";
+       position: absolute;
+       top: 50%;
+       left: 0;
+       right: 0;
+       height: 2px;
+       background-color: var(--medium-gray);
+       z-index: 1;
+   }
+
+   .step {
+       width: 36px;
+       height: 36px;
+       border-radius: 50%;
+       background-color: var(--medium-gray);
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       color: var(--dark-gray);
+       font-weight: 600;
+       position: relative;
+       z-index: 2;
+       transition: all 0.3s ease;
+   }
+
+   .step.active {
+       background-color: var(--primary-color);
+       color: white;
+   }
+
+   .step.completed {
+       background-color: var(--success-color);
+       color: white;
+   }
+
+   .tax-section {
+       margin-bottom: 2rem;
+       padding-bottom: 1.5rem;
+       border-bottom: 1px solid var(--medium-gray);
+   }
+
+   .tax-section h3 {
+       color: var(--primary-color);
+       margin-bottom: 1rem;
+       font-size: 1.1rem;
+   }
+
+   .form-row {
+       display: flex;
+       gap: 1rem;
+       margin-bottom: 1rem;
+   }
+
+   .form-row .form-group {
+       flex: 1;
+       margin-bottom: 0;
+   }
+
+   .confirmation-details {
+       background-color: var(--light-gray);
+       padding: 1.5rem;
+       border-radius: var(--border-radius);
+       margin-bottom: 2rem;
+   }
+
+   .detail-row {
+       display: flex;
+       justify-content: space-between;
+       margin-bottom: 0.75rem;
+   }
+
+   .detail-row:last-child {
+       margin-bottom: 0;
+   }
+
+   .detail-label {
+       color: var(--dark-gray);
+       font-weight: 600;
+   }
+
+   .detail-value {
+       color: var(--primary-color);
+       font-weight: 700;
+   }
+
+   .success-screen {
+       text-align: center;
+       padding: 2rem 0;
+   }
+
+   .return-home-btn {
+       display: inline-block;
+       padding: 0.5rem 1rem;
+       margin: 1rem;
+       background: linear-gradient(to right, #003366, #005a8c);
+       color: white;
+       border-radius: 6px;
+       font-weight: 600;
+       text-decoration: none;
+       text-align: center;
+       cursor: pointer;
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+   }
+
+   .success-icon {
+       font-size: 4rem;
+       color: var(--success-color);
+       margin-bottom: 1.5rem;
+   }
+
+   .success-message {
+       font-size: 1.25rem;
+       color: var(--primary-color);
+       margin-bottom: 1.5rem;
+       font-weight: 600;
+   }
+
+   .success-icon .receipt-number {
+       background-color: var(--light-gray);
+       padding: 1rem;
+       border-radius: var(--border-radius);
+       font-weight: 600;
+       margin-bottom: 2rem;
+       display: inline-block;
+   }
+
+   @media (max-width: 600px) {
+       .container {
+           padding: 2rem 1.5rem;
+       }
+
+       h2 {
+           font-size: 1.5rem;
+       }
+   }
+
+   @media (max-width: 480px) {
+       body {
+           padding: 16px;
+           align-items: flex-start;
+       }
+
+       .container {
+           padding: 1.75rem 1.25rem;
+           margin-top: 24px;
+       }
+
+       .govt-header {
+           flex-direction: column;
+           align-items: flex-start;
+       }
+
+       .govt-logo {
+           margin-bottom: 12px;
+       }
+
+       h2 {
+           font-size: 1.4rem;
+           padding-bottom: 0.5rem;
+       }
+
+       input,
+       button {
+           padding: 0.75rem 1rem;
+       }
+   }
