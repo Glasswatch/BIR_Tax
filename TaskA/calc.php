@@ -46,9 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             color: #333;
         }
         .calculator-container {
@@ -62,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
         
         h1 {
             text-align: center;
-            color: #2c3e50;
+            color:white;
             
         }
         fieldset {
@@ -148,11 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
             background-color: #f2dede;
             border-color: #ebccd1;
         }
-         .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    
         
         .bir-logo {
             height: 50px;
@@ -165,10 +160,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
             align-items:center;
             justify-content: center;
         }
-        
+        .top-nav {
+            background-color: #004080;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        } 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+         .main-nav {
+            background-color: #003366;
+            padding: 10px 20px;
+        }
+        .main-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .main-nav li {
+            margin-right: 20px;
+        }
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .main-nav a:hover {
+            background-color: #004080;
+        }
+         .logout-btn {
+            background-color: #cc0000;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        .logout-btn:hover {
+            background-color: #990000;
+        }
     </style>
 </head>
 <body>
+     <div class="top-nav">
+        <div class="logo-container">
+            <img src="../TaskB/picture.png" alt="BIR Logo" class="bir-logo">
+            <h1>Bureau of Internal Revenue</h1>
+            
+        </div>
+        <a href="../TaskA/login.php" class="logout-btn">Logout</a>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="forms.php">📝Forms</a></li>
+            <li><a href="calc.php">💵💰💳Withholding tax calculator</a></li>
+        </ul>
+    </nav>
+
     <div class="calculator-container">
         <div class="bir-header">
             <img src="../taskb/picture.png" alt="BIR Logo" class="bir-logo">

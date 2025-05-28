@@ -166,7 +166,7 @@
         <div class="top-nav">
             <div class="logo-container">
                 <img src="../TaskB/picture.png" alt="BIR Logo" class="bir-logo">
-                <h2>BIR Employee Dashboard</h2>
+                <h2>Bureau Of Internal Revenue</h2>
             </div>
             <nav>
                 <a href="../taska/login.php" class="logout-btn">Logout</a>

@@ -32,7 +32,7 @@ $result = $conn->query($sql);
 <body>
     <!-- Navigation -->
     <div class="top-nav">
-        <h2>Admin Panel</h2>
+        <h2>BIR Admin Panel</h2>
         <nav>
             <a href="admin_users.php">👥 Manage Users</a>
             <a href="generate_report.php">📄 Generate Report</a>

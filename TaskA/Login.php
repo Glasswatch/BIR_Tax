@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else if ($access_level === 'Bank') {
                 header("Location: ../taskC/payment_approval.php");
             }else {
-                header("Location: calc.php");
+                header("Location: forms.php");
             }
             exit();
 

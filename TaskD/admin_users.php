@@ -46,7 +46,7 @@ $result = $conn->query("SELECT id, first_name, last_name, email, is_approved, ac
     <div class="top-nav">
         <div class="bir-header">
             <img src="../taskb/picture.png" alt="BIR Logo" class="bir-logo">
-           <h1>Admin Panel</h1>
+           <h1>BIR Admin Panel</h1>
         </div>  
 
         

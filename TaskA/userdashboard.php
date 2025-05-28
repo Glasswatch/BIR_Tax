@@ -1,37 +1,3 @@
-<?php
-session_start();
-require_once '../db.php';
-
-// Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-    die("Access denied. Please log in.");
-}
-
-$user_id = $_SESSION['user_id'];
-$success = '';
-$error = '';
-
-// Handle form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['description'])) {
-    $description = trim($_POST['description']);
-
-    if (empty($description)) {
-        $error = "Report description cannot be empty.";
-    } else {
-        $stmt = $conn->prepare("INSERT INTO reports (user_id, description, status, created_at, updated_at) VALUES (?, ?, 'Pending', NOW(), NOW())");
-        $stmt->bind_param("is", $user_id, $description);
-
-        if ($stmt->execute()) {
-            $success = "Report submitted successfully!";
-        } else {
-            $error = "Something went wrong while submitting the report.";
-        }
-
-        $stmt->close();
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['description'])) {
     <div class="top-nav">
         <div class="logo-container">
             <img src="../TaskB/picture.png" alt="BIR Logo" class="bir-logo">
-            <h1>Bureau of Internal Revenue</h1>
+            <h1>Bureau of Internal</h1>
             
         </div>
         <a href="../TaskA/login.php" class="logout-btn">Logout</a>
@@ -199,8 +165,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['description'])) {
     <!-- Main Navigation -->
     <nav class="main-nav">
         <ul>
-            <li><a href="submit.php">📝Create Reports</a></li>
-            <li><a href="payment_approval.php">💵💰💳Payment Verification</a></li>
+            <li><a href="forms.php">📝Forms</a></li>
+            <li><a href="calc.php">💵💰💳Withholding tax calculator</a></li>
         </ul>
     </nav>
 
