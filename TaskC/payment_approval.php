@@ -2,7 +2,6 @@
     session_start();
     require_once '../db.php';
 
-    // Check if logged in and is an employee (official)
     if (!isset($_SESSION['user_id']) || $_SESSION['access_level'] !== 'Bank') {
         die("Access denied. Please log in as a Bank Official.");
     }
@@ -11,7 +10,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payment_id'], $_POST['action'])) {
         $payment_id = intval($_POST['payment_id']);
         $action = $_POST['action'];
-
+            
         $allowed_actions = ['approve', 'reject'];
         if (!in_array($action, $allowed_actions)) {
             die("Invalid action.");
@@ -170,7 +169,7 @@
                 <h2>BIR Employee Dashboard</h2>
             </div>
             <nav>
-                <a href="../logout.php" class="logout-btn">Logout</a>
+                <a href="../taska/login.php" class="logout-btn">Logout</a>
             </nav>
         </div>
 

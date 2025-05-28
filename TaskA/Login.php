@@ -40,11 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
 
         } else {
-            header("Location: login.php?error=Incorrect+password");
+            header("Location: login.php?error=Invalid+Username+or+Password");
             exit();
         }
     } else {
-        header("Location: login.php?error=Email+not+found");
+        header("Location: login.php?error=Invalid+Username+or+Password");
         exit();
     }
 
@@ -78,6 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p style="text-align: center; margin-top: 20px; color: #777; font-size: 14px;">
                 Don't have an account?
                 <a href="Register.php" style="color: #3498db; text-decoration: none; font-weight: 500;">Sign Up</a>
+            </p>
+            <p style="text-align: center; margin-top: 20px; color: #777; font-size: 14px;">
+                <a href="forgot_password.php" style="color: #3498db; text-decoration: none; font-weight: 500;">Forgot Password</a>
             </p>
         </form>
     </div>
