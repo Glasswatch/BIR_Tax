@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" href="register_design.css">
-    <script src="PasswordLogic.js"></script>
+    <script src="javascript/PasswordLogic.js"></script>
 </head>
 
 <body>
@@ -73,12 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
 
     <form method="POST" action="register.php" onsubmit="return validatePasswords();">
-        <input type="text" name="first_name" placeholder="First Name" required><br><br>
-        <input type="text" name="last_name" placeholder="Last Name" required><br><br>
+        <input type="text" pattern="[A-Za-z]+" name="first_name" placeholder="First Name" required><br><br>
+        <input type="text" name="last_name" pattern="[A-Za-z]+" placeholder="Last Name" required><br><br>
         <input type="email" name="email" placeholder="Email" required><br><br>
-        <input type="text" name="phone_number" placeholder="Phone Number" required><br><br>
-        <input type="password" id="password" name="password" placeholder="Password" required minlength="8"
-            autocomplete="new-password" oninput="updatePasswordFeedback();"><br>
+        <input type="number" pattern="\d+" name="phone_number" maxlength="11"  step="1" placeholder="Phone Number" required><br><br>
+        <input type="password"  id="password" name="password" placeholder="Password" required minlength="8"
+            autocomplete="new-password" oninput="updatePasswordFeedback();"><br>    
 
 
         

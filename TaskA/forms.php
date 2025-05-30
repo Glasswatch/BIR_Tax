@@ -1,3 +1,16 @@
+<?php 
+session_start();
+require_once '../db.php'; 
+
+if (!isset($_SESSION['user_id']) || $_SESSION['access_level'] !== 'user') {
+    header("Location: Login.php");
+    exit();
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../db.php'; // Your DB connection
+require_once '../db.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) {
     if (!isset($_SESSION['user_id'])) {
@@ -394,7 +394,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
         </form>
     </div>
 
-    <script src="taxtcalc.js">
+    <script src="javascript/taxtcalc.js">
     </script>
 </body>
 </html>
