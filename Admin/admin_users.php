@@ -45,7 +45,7 @@ $result = $conn->query("SELECT id, first_name, last_name, email, is_approved, ac
 <body>
     <div class="top-nav">
         <div class="bir-header">
-            <img src="../taskb/picture.png" alt="BIR Logo" class="bir-logo">
+            <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-logo">
            <h1>BIR Admin Panel</h1>
         </div>  
 
@@ -53,7 +53,7 @@ $result = $conn->query("SELECT id, first_name, last_name, email, is_approved, ac
         <nav>
             <a href="admin_users.php">👥 Manage Users</a>
             <a href="generate_report.php">📄 Generate Report</a>
-            <a href="../taska/Login.php">❌     Log out</a>
+            <a href="../BIR_Taxpayer/Login.php">❌     Log out</a>
         </nav>
     </div>
 

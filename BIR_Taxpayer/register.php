@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="register_design.css">
+    <link rel="stylesheet" href="css/register_design.css">
     <script src="javascript/PasswordLogic.js"></script>
 </head>
 
@@ -66,17 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     <div class="container">
         <div class="bir-header">
-           <img src="../taskb/picture.png" alt="BIR Logo" class="bir-img">
+           <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-img">
             <h2>Register</h2>
         </div> 
 
    
 
     <form method="POST" action="register.php" onsubmit="return validatePasswords();">
-        <input type="text" pattern="[A-Za-z]+" name="first_name" placeholder="First Name" required><br><br>
-        <input type="text" name="last_name" pattern="[A-Za-z]+" placeholder="Last Name" required><br><br>
+        <input type="text" pattern="[A-Za-z\s]+"  name="first_name" placeholder="First Name" required><br><br>
+        <input type="text" name="last_name" pattern="[A-Za-z\s]+" placeholder="Last Name" required><br><br>
         <input type="email" name="email" placeholder="Email" required><br><br>
-        <input type="number" pattern="\d+" name="phone_number" maxlength="11"  step="1" placeholder="Phone Number" required><br><br>
+        <input type="text" name="phone_number" pattern="\d{11}" placeholder="Phone Number" required><br><br>
         <input type="password"  id="password" name="password" placeholder="Password" required minlength="8"
             autocomplete="new-password" oninput="updatePasswordFeedback();"><br>    
 

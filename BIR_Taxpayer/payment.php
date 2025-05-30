@@ -73,123 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        .payment-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        .calculation-summary {
-            background-color: #eaf7fd;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .summary-label {
-            font-weight: bold;
-        }
-        .payment-options {
-            margin-top: 20px;
-        }
-        .payment-method {
-            margin-bottom: 15px;
-        }
-        input[type="text"] {
-            padding: 8px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-top: 5px;
-        }
-        .btn {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            background-color: #2ecc71;
-            color: white;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .bir-logo {
-            height: 50px;
-            width: auto;
-            margin-right: 1rem;
-        }
-        .bir-header{
-            display:flex;
-            align-items:center;
-            justify-content: center;
-        }
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 20% auto;
-            padding: 30px;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            animation: modalFadeIn 0.3s;
-        }
-        @keyframes modalFadeIn {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-        .success-icon {
-            font-size: 60px;
-            color: #2ecc71;
-            margin-bottom: 20px;
-        }
-        .alert {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-        }
-        .alert-error {
-            color: #a94442;
-            background-color: #f2dede;
-            border-color: #ebccd1;
-        }
-    </style>
+    <link rel="stylesheet" href="css/payment.css">
 </head>
 <body>
     <div class="payment-container">
         <div class="bir-header">
-            <img src="../taskb/picture.png" alt="BIR Logo" class="bir-logo">
+            <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-logo">
            <h1>Complete Your Payment</h1>
         </div> 
         
@@ -264,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 // Redirect after 3 seconds
                 setTimeout(function() {
-                    window.location.href = 'login.php';
+                    window.location.href = "../BIR_Taxpayer/login.php";
                 }, 1000);
             });
         <?php endif; ?>

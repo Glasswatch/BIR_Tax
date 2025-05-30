@@ -38,6 +38,9 @@
     body {
         font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
         background-color: #f5f7fa;
+        background-image: url(BIRBG.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -46,7 +49,9 @@
         padding: 20px;
         color: #212529;
         line-height: 1.6;
-        background-image: radial-gradient(circle at 10% 20%, rgba(0, 51, 102, 0.03) 0%, rgba(0, 51, 102, 0.03) 90%);
+    
+        
+        
     }
 
     .container {
@@ -60,6 +65,8 @@
         border-top: 4px solid var(--primary-color);
         position: relative;
         overflow: hidden;
+    
+        
     }
 
     .container::before {

@@ -43,181 +43,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Withholding Tax Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .calculator-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            color:white;
-            
-        }
-        fieldset {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        legend {
-            font-weight: bold;
-            padding: 0 10px;
-            color: #2c3e50;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"], input[type="number"], select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .btn-group {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        #calculateBtn {
-            background-color: #3498db;
-            color: white;
-        }
-        #clearBtn {
-            background-color: #e74c3c;
-            color: white;
-        }
-        .results {
-            background-color: #eaf7fd;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .results h3 {
-            margin-top: 0;
-            color: #2c3e50;
-        }
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .result-label {
-            font-weight: bold;
-        }
-
-                .alert {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-        }
-        .alert-success {
-            color: #3c763d;
-            background-color: #dff0d8;
-            border-color: #d6e9c6;
-        }
-        .alert-error {
-            color: #a94442;
-            background-color: #f2dede;
-            border-color: #ebccd1;
-        }
-    
-        
-        .bir-logo {
-            height: 50px;
-            width: auto;
-            margin-right: 1rem;
-        }
-        
-        .bir-header{
-            display:flex;
-            align-items:center;
-            justify-content: center;
-        }
-        .top-nav {
-            background-color: #004080;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        } 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-         .main-nav {
-            background-color: #003366;
-            padding: 10px 20px;
-        }
-        .main-nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        .main-nav li {
-            margin-right: 20px;
-        }
-        .main-nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .main-nav a:hover {
-            background-color: #004080;
-        }
-         .logout-btn {
-            background-color: #cc0000;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 3px;
-            text-decoration: none;
-        }
-        .logout-btn:hover {
-            background-color: #990000;
-        }
-    </style>
+    <link rel="stylesheet" href="css/calc.css">
 </head>
 <body>
      <div class="top-nav">
         <div class="logo-container">
-            <img src="../TaskB/picture.png" alt="BIR Logo" class="bir-logo">
+            <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-logo">
             <h1>Bureau of Internal Revenue</h1>
             
         </div>
-        <a href="../TaskA/login.php" class="logout-btn">Logout</a>
+        <a href="../BIR_Taxpayer/login.php" class="logout-btn">Logout</a>
     </div>
 
     <!-- Main Navigation -->
@@ -230,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_calculate'])) 
 
     <div class="calculator-container">
         <div class="bir-header">
-            <img src="../taskb/picture.png" alt="BIR Logo" class="bir-logo">
+            <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-logo">
            <h1>Withholding Tax Calculator</h1>
         </div>  
         

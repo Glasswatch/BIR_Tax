@@ -29,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_unset();
     session_destroy();
 
-    echo "Password reset successful. <a href='login.php'>Login here</a>";
+    header("Location: login.php?error=Password+updated");
+    exit();
 }
 ?>
 
@@ -40,14 +41,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="register_design.css">
+    <link rel="stylesheet" href="css/register_design.css">
 </head>
 
 <body>
     
     <div class="container">
         <div class="bir-header">
-           <img src="../taskb/picture.png" alt="BIR Logo" class="bir-img">
+           <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-img">
             <h2>Reset Password</h2>
         </div> 
 
@@ -96,9 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
 <script>
-    // Inject PHP session values into JavaScript
-    const firstName = <?php echo json_encode($_SESSION['first_name'] ?? ''); ?>;
-    const lastName = <?php echo json_encode($_SESSION['last_name'] ?? ''); ?>;
 
     // Custom modal alert
     function showAlert(title, message) {

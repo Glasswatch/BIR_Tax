@@ -29,11 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
             if ($is_admin) {
-                header("Location: ../TaskD/admin_users.php");
+                header("Location: ../Admin/admin_users.php");
             } else if ($access_level === 'Employee') {
-                header("Location: ../taskB/official_dashboard.php");
+                header("Location: ../BIR_Employee/official_dashboard.php");
             } else if ($access_level === 'Bank') {
-                header("Location: ../taskC/payment_approval.php");
+                header("Location: ../Bank/payment_approval.php");
             }else {
                 header("Location: forms.php");
             }
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="register_design.css" />
+    <link rel="stylesheet" href="css/register_design.css" />
     <title>Login</title>
 </head>
 
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         
         <div class="bir-header">
-           <img src="../taskb/picture.png" alt="BIR Logo" class="bir-img">
+           <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-img">
            <h2>Login</h2>
         </div> 
 
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <script src="PasswordLogic.js"></script>
+    <script src="javascript/PasswordLogic.js"></script>
 </body>
 
 </html>

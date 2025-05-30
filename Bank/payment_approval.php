@@ -48,128 +48,16 @@
     <head>  
         <meta charset="UTF-8" />
         <title>Payment Verification - BIR Employee</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f5f5f5;
-            }
-            .top-nav {
-                background-color: #004080;
-                color: white;
-                padding: 15px 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
-            .logo-container {
-                display: flex;
-                align-items: center;
-                gap: 15px;
-            }
-            .bir-logo {
-                height: 50px;
-                width: auto;
-            }
-            .main-nav {
-                background-color: #003366;
-                padding: 10px 20px;
-            }
-            .main-nav ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                display: flex;
-            }
-            .main-nav li {
-                margin-right: 20px;
-            }
-            .main-nav a {
-                color: white;
-                text-decoration: none;
-                font-weight: bold;
-                padding: 5px 10px;
-                border-radius: 3px;
-                transition: background-color 0.3s;
-            }
-            .main-nav a:hover {
-                background-color: #004080;
-            }
-            .content {
-                padding: 20px;
-                background-color: white;
-                margin: 20px;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
-            table { 
-                width: 100%; 
-                border-collapse: collapse; 
-                margin-top: 20px; 
-            }
-            th, td { 
-                border: 1px solid #ddd; 
-                padding: 8px; 
-                text-align: center; 
-            }
-            th { 
-                background-color: #004080; 
-                color: white; 
-            }
-            button { 
-                padding: 5px 10px; 
-                margin: 2px; 
-                cursor: pointer; 
-                border: none;
-                border-radius: 3px;
-            }
-            .status-Pending { 
-                color: orange; 
-                font-weight: bold; 
-            }
-            .status-Approved { 
-                color: green; 
-                font-weight: bold; 
-            }
-            .status-Rejected { 
-                color: red; 
-                font-weight: bold; 
-            }
-            .logout-btn {
-                background-color: #cc0000;
-                color: white;
-                padding: 5px 15px;
-                border-radius: 3px;
-                text-decoration: none;
-            }
-            .logout-btn:hover {
-                background-color: #990000;
-            }
-            .message {
-                padding: 10px;
-                margin-bottom: 20px;
-                border-radius: 3px;
-            }
-            .success {
-                background-color: #dff0d8;
-                color: #3c763d;
-            }
-            .error {
-                background-color: #f2dede;
-                color: #a94442;
-            }
-        </style>
+        <link rel="stylesheet" href="bank.css">    
     </head>
     <body>
         <div class="top-nav">
             <div class="logo-container">
-                <img src="../TaskB/picture.png" alt="BIR Logo" class="bir-logo">
+                <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-logo">
                 <h2>Bureau Of Internal Revenue</h2>
             </div>
             <nav>
-                <a href="../taska/login.php" class="logout-btn">Logout</a>
+                <a href="../BIR_Taxpayer/login.php" class="logout-btn">Logout</a>
             </nav>
         </div>
 
