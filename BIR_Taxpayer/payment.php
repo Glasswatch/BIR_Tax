@@ -24,6 +24,12 @@ if (!$calculation) {
     exit();
 }
 
+// Initialize variables for receipt
+$afrNumber = '';
+$convenienceFee = 0;
+$totalAmount = 0;
+$paymentSuccess = false;
+
 // Only handle POST when user is submitting the form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $paymentMethod = $_POST['paymentMethod'] ?? '';
@@ -42,21 +48,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+    // Calculate convenience fee (example: 0.5% of amount)
+    $convenienceFee = $calculation['withholding_tax'] * 0.005;
+    $totalAmount = $calculation['withholding_tax'] + $convenienceFee;
+    
+    // Generate AFR number (format: 000000000-00000-00-000-00-Q0-000000-O)
+    $afrNumber = sprintf("%09d", $userId) . '-' . 
+                 sprintf("%05d", rand(0, 99999)) . '-' . 
+                 date('m') . '-' . 
+                 sprintf("%03d", rand(0, 999)) . '-' . 
+                 date('y') . '-Q' . 
+                 ceil(date('n')/3) . '-' . 
+                 sprintf("%06d", rand(0, 999999)) . '-O';
+
     // Save payment to DB
     $paymentQuery = "INSERT INTO tax_payments 
-        (user_id, calculation_id, payment_method, amount, reference_number, payment_status, created_at) 
-        VALUES (?, ?, ?, ?, ?, 'pending', NOW())";
+        (user_id, calculation_id, payment_method, amount, convenience_fee, 
+         reference_number, afr_number, payment_status, payment_date, created_at) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, 'pending', NOW(), NOW())";
     $paymentStmt = $conn->prepare($paymentQuery);
     $paymentStmt->bind_param(
-        "iisss", 
+        "iisddss", 
         $userId, 
         $calculation['id'], 
         $paymentMethod, 
-        $calculation['withholding_tax'], 
-        $referenceNumber
+        $calculation['withholding_tax'],
+        $convenienceFee,
+        $referenceNumber,
+        $afrNumber
     );
 
     if ($paymentStmt->execute()) {
+        $paymentId = $conn->insert_id;
         $paymentSuccess = true;
     } else {
         $_SESSION['error'] = "Payment failed: " . $paymentStmt->error;
@@ -74,8 +97,96 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <link rel="stylesheet" href="css/payment.css">
+    <style>
+        /* Receipt Styles */
+        .receipt-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .bir-header h1 {
+            color: #003366;  
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .bir-header h2 {
+            color: #333;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .receipt-success {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f0fff0;
+            border: 1px solid #a0d8a0;
+        }
+
+        .receipt-success h3 {
+            color: #008000;
+            margin: 0;
+        }
+
+        .receipt-details {
+            margin: 20px 0;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-item.total {
+            font-weight: bold;
+            border-top: 2px solid #333;
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        .detail-label {
+            font-weight: bold;
+        }
+
+        .receipt-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .receipt-container, .receipt-container * {
+                visibility: visible;
+            }
+            .receipt-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                border: none;
+            }
+            .receipt-actions {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <?php if (!$paymentSuccess): ?>
     <div class="payment-container">
         <div class="bir-header">
             <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-logo">
@@ -126,37 +237,95 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="payment-method">
-                    <label for="referenceNumber">Reference Number (if available):</label>
-                    <input type="text" id="referenceNumber" name="referenceNumber" placeholder="Enter reference number" required>
+                    <label for="referenceNumber">Reference Number (Required):</label>
+                    <input type="number" pattern="\d{11}" maxlength="11" id="referenceNumber" name="referenceNumber" placeholder="Enter reference number" required>
                 </div>
 
                 <button type="submit" class="btn">Proceed to Payment</button>
             </form>
         </div>
     </div>
+    <?php endif; ?>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <div class="success-icon">✓</div>
-            <h2>Payment Successful!</h2>
-            <p>You will be redirected to the login page shortly.</p>
+    <?php if (isset($paymentSuccess) && $paymentSuccess): ?>
+    <div class="receipt-container">
+        <div class="bir-header">
+            <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-logo">
+            <h1 style="text-align: center;">BIRTaxPay</h1>
+          
+        </div>
+          <h2 style="text-align: center;">AUTHORIZED TAX PAYMENT GATEWAY</h2>
+        <div class="receipt-success">
+            <h3>Payment Successful</h3>
+            <p>Thank you for your payment.</p>
+        </div>
+        
+        <div class="receipt-details">
+            <div class="detail-item">
+                <span class="detail-label">AFR#:</span>
+                <span><?php echo $afrNumber; ?></span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Status:</span>
+                <span>Pending   </span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Date and Time:</span>
+                <span><?php echo date('F j, Y g:i A'); ?></span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Merchant:</span>
+                <span>Bureau of Internal Revenue</span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Reference No.:</span>
+                <span><?php echo $referenceNumber; ?></span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Payment Method:</span>
+                <span><?php 
+                    echo ucfirst(str_replace('_', ' ', $paymentMethod)); 
+                ?></span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Customer Account No.:</span>
+                <span><?php echo $userId; ?></span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Amount:</span>
+                <span>PHP <?php echo number_format($calculation['withholding_tax'], 2); ?></span>
+            </div>
+            
+            <div class="detail-item">
+                <span class="detail-label">Convenience Fee:</span>
+                <span>PHP <?php echo number_format($convenienceFee, 2); ?></span>
+            </div>
+            
+            <div class="detail-item total">
+                <span class="detail-label">TOTAL AMOUNT:</span>
+                <span>PHP <?php echo number_format($totalAmount, 2); ?></span>
+            </div>
+        </div>
+        
+        <div class="receipt-actions">
+            <button onclick="window.print()" class="btn">Print Receipt</button>
+            <a href="../BIR_Taxpayer/dashboard.php" class="btn">Return to Dashboard</a>
         </div>
     </div>
-
+    
     <script>
-        <?php if (isset($paymentSuccess) && $paymentSuccess): ?>
-            // Show modal
-            document.addEventListener('DOMContentLoaded', function() {
-                const modal = document.getElementById('successModal');
-                modal.style.display = 'block';
-                
-                // Redirect after 3 seconds
-                setTimeout(function() {
-                    window.location.href = "../BIR_Taxpayer/login.php";
-                }, 1000);
-            });
-        <?php endif; ?>
+        // Auto-scroll to receipt
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, document.body.scrollHeight);
+        });
     </script>
+    <?php endif; ?>
 </body>
 </html>

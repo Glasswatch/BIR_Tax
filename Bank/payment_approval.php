@@ -50,11 +50,11 @@
         <title>Payment Verification - BIR Employee</title>
         <link rel="stylesheet" href="bank.css">    
     </head>
-    <body>
+    <body>  
         <div class="top-nav">
             <div class="logo-container">
                 <img src="../BIR_Employee/picture.png" alt="BIR Logo" class="bir-logo">
-                <h2>Bureau Of Internal Revenue</h2>
+                <h2 style="color: white;">Bureau Of Internal Revenue</h2>
             </div>
             <nav>
                 <a href="../BIR_Taxpayer/login.php" class="logout-btn">Logout</a>

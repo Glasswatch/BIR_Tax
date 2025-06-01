@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" pattern="[A-Za-z\s]+"  name="first_name" placeholder="First Name" required><br><br>
         <input type="text" name="last_name" pattern="[A-Za-z\s]+" placeholder="Last Name" required><br><br>
         <input type="email" name="email" placeholder="Email" required><br><br>
-        <input type="text" name="phone_number" pattern="\d{11}" placeholder="Phone Number" required><br><br>
+        <input type="number" name="phone_number" pattern="\d{11}" maxlength="11" placeholder="Phone Number" required><br><br>
         <input type="password"  id="password" name="password" placeholder="Password" required minlength="8"
             autocomplete="new-password" oninput="updatePasswordFeedback();"><br>    
 
