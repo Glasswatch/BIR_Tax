@@ -1,11 +1,17 @@
 /* Reset default spacing and set box-sizing globally */
+
+:root{
+
+    --main-color: #003366;  
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
@@ -37,7 +43,7 @@ html, body {
 }
 
 /* Content Styling */
-body > .content {
+body>.content {
     padding: 2rem;
 }
 
@@ -47,15 +53,16 @@ h3 {
 
 /* Table Styling */
 table {
-    
+
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
-th, td {
+th,
+td {
     padding: 12px 15px;
     border: 1px solid #ddd;
     text-align: center;
@@ -97,46 +104,81 @@ form {
     display: inline-block;
 }
 
-     .search-form {
-            margin-bottom: 1rem;
-            display: flex;
-           justify-content: flex-end;
-            
-        }
-        .search-form input[type="text"] {
-            padding: 0.5rem;
-            width: 250px;
-        }
-        .search-form button {
-            padding: 0.5rem;
-        }
-        .search-form a{
-            margin-top: 1vw; 
-            text-decoration: none;
-            border:solid; 
-            border-radius: 3vw; 
-            width: 5vw; 
-            display: flex;
-            justify-content: center; 
-            transform: all 0.3s ease-in-out;
-            background-color: #003366;   
-            color: #ddd;
-        }
-        .search-form a:hover{
-            transform: scaleY(1.1);
-             background-color: #0d6ac8c4; 
-      
-        }
+.search-form {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
 
-         
- .bir-logo {
-            height: 50px;
-            margin-right: 1rem;
-        }
-        
-.bir-header{
-            display:flex;
-            align-items:center;
-            justify-content: center;
-        }
-        
+}
+
+.search-form input[type="text"] {
+    padding: 0.5rem;
+    width: 250px;
+}
+
+.search-form button {
+    padding: 0.5rem;
+}
+
+.search-form a {
+    margin-top: 1vw;
+    text-decoration: none;
+    border: solid;
+    border-radius: 3vw;
+    width: 5vw;
+    display: flex;
+    justify-content: center;
+    transform: all 0.3s ease-in-out;
+    background-color: #003366;
+    color: #ddd;
+}
+
+.search-form a:hover {
+    transform: scaleY(1.1);
+    background-color: #0d6ac8c4;
+
+}
+
+
+.bir-logo {
+    height: 50px;
+    margin-right: 1rem;
+}
+
+.bir-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*  this is the design for the pagination */ 
+.pagination {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.pagination a,
+.pagination span {
+    margin: 0 4px;
+    padding: 6px 10px;
+    text-decoration: none;
+    border: 1px solid #888;
+    color: #333;
+}
+
+.pagination .current {
+    font-weight: bold;
+    background: #ddd;
+    border-color: #666;
+}
+
+.action-cell form {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.action-cell button,
+.action-cell select {
+    padding: 0.3rem 0.5rem;
+}
